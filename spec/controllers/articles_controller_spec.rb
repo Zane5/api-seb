@@ -13,7 +13,7 @@ describe ArticlesController do
     it "should return proper json" do
       articles = create_list :article, 2
       subject
-      articles.each_with_index do |article, idx|
+      Article.recent.each_with_index do |article, idx|
         expect(json_data[idx]["attributes"]).to eq({
           "title" => article.title,
           "content" => article.content,
